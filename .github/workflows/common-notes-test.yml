@@ -1,0 +1,48 @@
+name: Common notes test APK
+
+on:
+  push:
+    branches: [codex/common-notes]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - name: Java for Android SDK tools
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install original Android SDK packages
+        run: |
+          sdkmanager --install 'platforms;android-27' 'build-tools;27.0.3'
+      - name: Java for original Gradle version
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '8'
+      - name: Prepare local debug configuration
+        run: |
+          cp local.properties.example local.properties
+          printf '\nsdk.dir=%s\n' "$ANDROID_HOME" >> local.properties
+      - name: Run unit tests and build standalone test APK
+        run: bash gradlew :app:testOfficialDebugUnitTest :app:assembleOfficialDebug --no-daemon --stacktrace
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: common-notes-test-reports
+          path: app/build/reports/tests/
+          if-no-files-found: ignore
+      - name: Upload APK
+        uses: actions/upload-artifact@v7
+        with:
+          name: mine-common-notes-test-apk
+          path: app/build/outputs/apk/official/debug/*.apk
+          if-no-files-found: error

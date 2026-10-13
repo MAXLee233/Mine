@@ -35,7 +35,9 @@ android {
         }
         debug {
             minifyEnabled false
-            signingConfig signingConfigs.release
+            applicationIdSuffix '.commonnotes'
+            versionNameSuffix '-common-notes-test'
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField 'String', 'TALKING_DATA_APP_ID', "\"$rootProject.talkingDataId\""
         }
