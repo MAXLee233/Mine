@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tally_common_notes">常用备注</string>
+    <string name="tally_edit_common_notes">编辑常用备注</string>
+    <string name="tally_common_notes_edit">编辑</string>
+    <string name="tally_common_notes_empty">还没有常用备注，点“编辑”添加</string>
+    <string name="tally_common_notes_hint">早餐\n午餐\n晚餐</string>
+    <string name="tally_common_notes_help">每行一条，仅用于当前分类。删除某行即可移除；全部清空可关闭快捷备注。</string>
+    <string name="tally_use_common_note">使用备注：%1$s</string>
+    <string-array name="tally_food_common_notes">
+        <item>早餐</item>
+        <item>午餐</item>
+        <item>晚餐</item>
+        <item>外卖</item>
+    </string-array>
+</resources>

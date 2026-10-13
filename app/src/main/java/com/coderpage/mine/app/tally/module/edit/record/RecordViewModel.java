@@ -33,6 +33,7 @@ import com.coderpage.mine.app.tally.module.edit.category.CategoryManagerActivity
 import com.coderpage.mine.app.tally.module.edit.model.Category;
 import com.coderpage.mine.app.tally.persistence.model.CategoryModel;
 import com.coderpage.mine.app.tally.persistence.model.Record;
+import com.coderpage.mine.app.tally.ui.dialog.CommonNoteDialog;
 import com.coderpage.mine.app.tally.ui.dialog.TextEditDialog;
 import com.coderpage.mine.app.tally.utils.DatePickUtils;
 import com.coderpage.mine.utils.AndroidUtils;
@@ -144,8 +145,12 @@ public class RecordViewModel extends AndroidViewModel implements LifecycleObserv
 
     /** 消费说明点击 */
     public void onDescClick(Activity activity) {
+        Category category = mCurrentSelectCategory.getValue();
+        if (category == null) {
+            return;
+        }
         String desc = mDesc.get();
-        TextEditDialog dialog = new TextEditDialog(activity)
+        CommonNoteDialog dialog = new CommonNoteDialog(activity, category.getInternal())
                 .setTitle(ResUtils.getString(activity, R.string.tally_add_record_note))
                 .setHint(ResUtils.getString(activity, R.string.tally_expense_note))
                 .setContent(desc)

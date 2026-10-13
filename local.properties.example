@@ -1,0 +1,9 @@
+# Copy to local.properties and set the SDK path for your computer.
+# The debug build uses the standard Android debug signature, not these release settings.
+sdk.dir=/absolute/path/to/Android/Sdk
+keyAlias=unused-for-debug
+keyPassword=unused-for-debug
+keyStore=unused-release.keystore
+storePassword=unused-for-debug
+talkingDataId=
+releaseToken=

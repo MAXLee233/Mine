@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    android:background="@drawable/bg_dialog_bottom_sheet"
+    android:padding="@dimen/padding_normal">
+
+    <TextView
+        android:id="@+id/tvCommonNoteTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tally_add_record_note"
+        android:textColor="@color/appTextColorPrimary"
+        android:textSize="@dimen/app_text_size_large" />
+
+    <EditText
+        android:id="@+id/etCommonNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="80dp"
+        android:maxLines="4"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:hint="@string/tally_expense_note"
+        android:background="@null"
+        android:paddingTop="12dp"
+        android:textColor="@color/appTextColorPrimary"
+        android:textCursorDrawable="@drawable/edit_cursor"
+        android:textSize="@dimen/app_text_size_medium" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/tally_common_notes"
+            android:textColor="@color/appTextColorSecondary"
+            android:textSize="@dimen/app_text_size_normal" />
+        <TextView
+            android:id="@+id/tvEditCommonNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:text="@string/tally_common_notes_edit"
+            android:contentDescription="@string/tally_edit_common_notes"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/app_text_size_normal" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvCommonNotesEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:text="@string/tally_common_notes_empty"
+        android:textColor="@color/appTextColorThird" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <LinearLayout
+            android:id="@+id/lyCommonNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tvCommonNoteCancel"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:gravity="center"
+            android:background="@drawable/bg_accent_btn_round_stroke"
+            android:text="@string/cancel"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/app_text_size_large" />
+        <TextView
+            android:id="@+id/tvCommonNoteConfirm"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:background="@drawable/bg_accent_btn_round"
+            android:text="@string/confirm"
+            android:textColor="@color/white"
+            android:textSize="@dimen/app_text_size_large" />
+    </LinearLayout>
+</LinearLayout>
